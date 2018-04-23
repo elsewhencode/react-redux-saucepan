@@ -1,0 +1,28 @@
+{
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "parser": "babel-eslint",
+  "plugins": ["react", "import", "flowtype"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "root": true,
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["__PRELOADED_STATE__", "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]
+      }
+    ],
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 2
+  },
+  "globals": {
+    "__ASSETS__": true,
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__PRODUCTION__": true,
+    "__DEV__": true
+  }
+}

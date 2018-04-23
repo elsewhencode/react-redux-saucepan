@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    "transform-object-rest-spread",
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
+  ],
+  "presets": ["env", "flow", "react"],
+  "retainLines": true
+}

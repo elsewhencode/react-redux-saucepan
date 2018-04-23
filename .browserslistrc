@@ -1,0 +1,5 @@
+# Browsers that we support,
+# This will be shared with other tools like babel-preset-env or Stylelint.
+
+Last 2 versions
+ie > 10
