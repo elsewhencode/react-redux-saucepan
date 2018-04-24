@@ -1,10 +1,10 @@
 const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const srcPath = path.resolve(__dirname, '../');
-const buildPath = path.resolve(__dirname, '../dist');
+/* eslint-enable import/no-extraneous-dependencies */
+const srcPath = path.resolve(__dirname, '../src/server');
 const { ASSETS_PATH } = require('../config');
 
 module.exports = {
@@ -14,12 +14,11 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     index: [
-      // entry point of the app
-      './src/server/index',
+      // entry point of the app for serverside
+      './index',
     ],
   },
   output: {
-    path: buildPath,
     filename: '[name].js',
     publicPath: ASSETS_PATH,
   },
@@ -61,7 +60,7 @@ module.exports = {
   externals: nodeExternals(),
   resolve: {
     modules: [path.resolve('./src')],
-    extensions: ['.json', '.js'],
+    extensions: ['.js', '.json'],
   },
   node: {
     __dirname: false,

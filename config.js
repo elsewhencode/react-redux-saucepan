@@ -1,11 +1,13 @@
 // todo: get most of the values from env variables
 const { parsed } = require('dotenv').config();
 
+const { PORT, HOST } = parsed || {};
+
 const config = {
-  WEB_PORT: parsed ? parsed.PORT : '3000',
+  WEB_PORT: PORT || '3000',
   ASSETS_PATH: '/assets/',
-  HOST: parsed ? parsed.HOST : '0.0.0.0',
-  APP_NAME: 'My Pension Solution',
+  HOST: HOST || '0.0.0.0',
+  APP_NAME: 'react-redux-saucepan',
 };
 
 module.exports = config;

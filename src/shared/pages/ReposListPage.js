@@ -2,6 +2,6 @@
 
 import React from 'react';
 
-const ReposListPage = () => <p>This is info Page</p>;
+const ReposListPage = () => <p>repo List</p>;
 
 export default ReposListPage;

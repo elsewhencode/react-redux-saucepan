@@ -1,28 +1,26 @@
 const path = require('path');
-
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-
+/* eslint-enable import/no-extraneous-dependencies */
 const { ASSETS_PATH } = require('../config');
 
-const srcPath = path.resolve(__dirname, '../src');
-const buildPath = path.resolve(__dirname, '../dist');
+const srcPath = path.resolve(__dirname, '../src/client');
 
 module.exports = {
   context: srcPath,
   target: 'web',
   entry: {
-    app: ['./client/index.js'],
+    app: ['./index.js'],
   },
   output: {
-    path: buildPath,
     filename: 'app.js',
     publicPath: ASSETS_PATH,
   },
   resolve: {
-    extensions: ['.json', '.js'],
+    extensions: ['.js', '.json'],
   },
   module: {
     rules: [

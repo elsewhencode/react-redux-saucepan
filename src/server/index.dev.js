@@ -1,9 +1,11 @@
 // @flow
 import express from 'express';
 
+/* eslint-disable import/no-extraneous-dependencies */
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+/* eslint-enable import/no-extraneous-dependencies */
 
 import webpackConfig from '../../scripts/webpack.dev';
 import html from './html';
@@ -32,12 +34,11 @@ app.get('*', (req: express$Request, res: express$Response) => {
   res.status(200).send(html());
 });
 
-// flow-disable-next-line
 app.listen(WEB_PORT, HOST, (err) => {
   if (err) {
-    console.error(err); // eslint-disable-line no-console
+    console.error(err);
     return;
   }
-  // eslint-disable-next-line no-console
+
   console.log(`Server running at ${HOST}:${WEB_PORT} (Auto Refresh)`);
 });

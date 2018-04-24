@@ -18,7 +18,7 @@ export type ReposListStateType = {
   +loading: boolean,
   +loaded: boolean,
   +error: ?string,
-  +reposList: RepoType[],
+  +data: RepoType[],
 };
 
 // Using disjoint unions, Flow will be able to understand your reducers much better.
@@ -37,7 +37,7 @@ export const initialState: ReposListStateType = {
   loading: false,
   loaded: false,
   error: null,
-  reposList: [],
+  data: [],
 };
 
 // Reducer
@@ -58,7 +58,7 @@ export default function reducer(
         ...state,
         loading: false,
         loaded: true,
-        reposList: action.payload,
+        data: action.payload,
       };
     case GET_REPOS_LIST_FAILURE:
       return {

@@ -1,21 +1,21 @@
 const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin'); 
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+/* eslint-enable import/no-extraneous-dependencies */
 const { ASSETS_PATH } = require('../config');
 
+const srcPath = path.resolve(__dirname, '../src/client');
 const buildPath = path.resolve(__dirname, '../dist');
-const srcPath = path.resolve(__dirname, '../src');
 
 module.exports = {
   context: srcPath,
   target: 'web',
+  mode: 'development',
   entry: [
-    // activate HMR for React
-    'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     // the entry point of our app
-    './client/index.js',
+    './index.js',
   ],
   output: {
     filename: 'app.js',
@@ -65,8 +65,9 @@ module.exports = {
     ],
   },
   plugins: [
-    // enable HMR globally
+    // enable HMR
     new webpack.HotModuleReplacementPlugin(),
+
     new webpack.DefinePlugin({
       __CLIENT__: true,
       __SERVER__: false,
