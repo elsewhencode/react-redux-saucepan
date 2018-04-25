@@ -17,8 +17,10 @@ const preloadedState: string = window.__PRELOADED_STATE__;
 const rootElement: Element = document.getElementById('app');
 const store: Store = initStore(preloadedState);
 
-const wrapApp: (typeof App, Store) => React$Element<any> = (AppComponent, reduxStore) => (
-  // eslint-disable-next-line react/jsx-filename-extension
+const wrapApp: (typeof App, Store) => React$Element<any> = (
+  AppComponent,
+  reduxStore,
+) => (
   <Provider store={reduxStore}>
     <BrowserRouter>
       <AppComponent state={window.__PRELOADED_STATE__} />
