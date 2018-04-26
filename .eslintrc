@@ -19,10 +19,10 @@
     "react/prop-types": 2
   },
   "globals": {
-    "__ASSETS__": true,
-    "__CLIENT__": true,
-    "__SERVER__": true,
-    "__PRODUCTION__": true,
-    "__DEV__": true
+    "__ASSETS__": false,
+    "__CLIENT__": false,
+    "__SERVER__": false,
+    "__PRODUCTION__": false,
+    "__DEV__": false
   }
 }
