@@ -9,13 +9,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf ./node_modules && npm cache verify && rm ./package-lock.json",
-    "flow": " flow ./src && flow-coverage-report -i 'src/**/*.js' -x 'src/test/**'",
+    "flow": " flow './src' && flow-coverage-report -i 'src/**/*.js' -x 'src/test/**'",
     "start:dev": "rm -rf ./dist/* && babel-watch ./src/server/index.dev.js -w ./server",
     "start": "node dist/index.js",
     "prestart": "npm run test && npm run build",
     "test": "echo \"Hmmm... no test specified\" ",
-    "build":
-      "webpack --mode production  --config ./scripts/webpack.server.js && webpack --mode production --config ./scripts/webpack.client.js",
+    "build": "webpack --mode production  --config ./scripts/webpack.server.js && webpack --mode production --config ./scripts/webpack.client.js",
     "lint": "eslint './src/**/*.js' && stylelint './src/**/*.js'"
   },
   "author": "Elsewhen Limited <vahid@elsewhen.co>",
@@ -27,7 +26,7 @@
     "express": "4.16.3",
     "react": "16.3.2",
     "react-dom": "16.3.2",
-    "react-hot-loader": "4.1.1",
+    "react-hot-loader": "4.1.2",
     "react-redux": "5.0.7",
     "react-router": "4.2.0",
     "react-router-dom": "4.2.2",
