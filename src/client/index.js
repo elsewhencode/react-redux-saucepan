@@ -13,19 +13,28 @@ import { hot } from 'react-hot-loader';
 import App from '../shared/App';
 import initStore from '../shared/store';
 
+// Read more about ErrorBoundries here:
+// https://reactjs.org/docs/error-boundaries.html
+import ErrorBoundry from './ErrorBoundry';
+
 const preloadedState: string = window.__PRELOADED_STATE__;
-const rootElement: Element = document.getElementById('app');
+const rootElement: Element | null = document.getElementById('app');
 const store: Store = initStore(preloadedState);
 
-const wrapApp: (typeof App, Store) => React$Element<any> = (AppComponent, reduxStore) => (
-  // eslint-disable-next-line react/jsx-filename-extension
+const provideAppwithStore: (typeof App, Store) => React$Element<any> = (
+  AppComponent,
+  reduxStore,
+) => (
   <Provider store={reduxStore}>
-    <BrowserRouter>
-      <AppComponent state={window.__PRELOADED_STATE__} />
-    </BrowserRouter>
+    <ErrorBoundry>
+      <BrowserRouter>
+        <AppComponent state={window.__PRELOADED_STATE__} />
+      </BrowserRouter>
+    </ErrorBoundry>
   </Provider>
 );
 
 const appWithHotReload = hot(module)(App);
-
-ReactDOM.render(wrapApp(appWithHotReload, store), rootElement);
+if (rootElement instanceof HTMLElement) {
+  ReactDOM.render(provideAppwithStore(appWithHotReload, store), rootElement);
+}
