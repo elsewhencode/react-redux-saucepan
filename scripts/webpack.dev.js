@@ -2,6 +2,7 @@ const path = require('path');
 /* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FlowWebpackPlugin = require('flow-webpack-plugin');
 /* eslint-enable import/no-extraneous-dependencies */
 const { ASSETS_PATH } = require('../config');
 
@@ -32,7 +33,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader'] }),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader'],
+        }),
       },
       // Font Definitions
       {
@@ -53,7 +57,10 @@ module.exports = {
       {
         test: /\.js$/,
         enforce: 'pre',
-        use: [{ loader: 'eslint-loader' }, { loader: 'stylelint-custom-processor-loader' }],
+        use: [
+          { loader: 'eslint-loader' },
+          { loader: 'stylelint-custom-processor-loader' },
+        ],
         exclude: /node_modules/,
       },
       // babel
@@ -67,13 +74,17 @@ module.exports = {
   plugins: [
     // enable HMR
     new webpack.HotModuleReplacementPlugin(),
+    // check flow types on each compile
+    new FlowWebpackPlugin(),
 
+    // Dev mode doesnt do SSR, so __CLIENT_ is always true
     new webpack.DefinePlugin({
       __CLIENT__: true,
       __SERVER__: false,
       __PRODUCTION__: false,
       __DEV__: true,
     }),
+
     new ExtractTextPlugin('app.css'),
   ],
 };

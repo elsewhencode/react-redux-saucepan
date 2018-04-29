@@ -4,6 +4,8 @@ const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const FlowWebpackPlugin = require('flow-webpack-plugin');
+
 /* eslint-enable import/no-extraneous-dependencies */
 const { ASSETS_PATH } = require('../config');
 
@@ -26,7 +28,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader'] }),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader'],
+        }),
       },
       // Font Definitions
       {
@@ -46,7 +51,10 @@ module.exports = {
       {
         test: /\.js$/,
         enforce: 'pre',
-        use: [{ loader: 'eslint-loader' }, { loader: 'stylelint-custom-processor-loader' }],
+        use: [
+          { loader: 'eslint-loader' },
+          { loader: 'stylelint-custom-processor-loader' },
+        ],
         exclude: /node_modules/,
       },
       {
@@ -58,6 +66,8 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
+    // check flow types on each compile
+    new FlowWebpackPlugin(),
     new webpack.DefinePlugin({
       __CLIENT__: true,
       __SERVER__: false,
