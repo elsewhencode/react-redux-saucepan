@@ -1,7 +1,6 @@
 // @flow
 
 import { connect } from 'react-redux';
-import { type Dispatch } from 'redux';
 
 import { fetchReposList } from '../../reducers/reposList';
 import Button from '../../components/Button';

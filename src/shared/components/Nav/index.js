@@ -1,10 +1,14 @@
 // @flow
-import React, { type Element } from 'react';
+import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { ROOT_PAGE_ROUTE, ABOUT_PAGE_ROUTE, REPOS_LIST_PAGE_ROUTE } from '../../routes';
+import {
+  ROOT_PAGE_ROUTE,
+  ABOUT_PAGE_ROUTE,
+  REPOS_LIST_PAGE_ROUTE,
+} from '../../routes';
 
-const Navigation = (): Element<any> => (
+const Navigation = (): React.Element<any> => (
   <ul>
     <li>
       <NavLink to={ROOT_PAGE_ROUTE}>Home</NavLink>

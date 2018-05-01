@@ -1,5 +1,5 @@
 // @flow
-import { ASSETS_PATH, APP_NAME } from '../../config';
+import { ASSETS_PATH } from '../../config';
 
 export default function generateHtmlPage(
   plainPartialState: any = {},
@@ -8,7 +8,7 @@ export default function generateHtmlPage(
 ): string {
   return `<!DOCTYPE html><html lang="en">
     <head>
-      <title>${APP_NAME}</title>
+      <title>react-redux-saucepan</title>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="HandheldFriendly" content="True">

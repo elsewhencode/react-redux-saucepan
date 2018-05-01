@@ -1,6 +1,6 @@
 // @flow
-import React, { type Element } from 'react';
+import * as React from 'react';
 
-const Navigation = (): Element<any> => <div>Loading...</div>;
+const Navigation = (): React.Element<any> => <div>Loading...</div>;
 
 export default Navigation;

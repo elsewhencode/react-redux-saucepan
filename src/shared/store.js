@@ -1,14 +1,13 @@
 // @flow
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-
 import rootReducer, { type AppStateType } from './reducers';
 
 // TODO: review the type
-const middlewares: Array<any> = [thunkMiddleware];
+const middlewares: [any] = [thunkMiddleware];
 
 export default function initStore(loadedState?: AppStateType | string): Store {
-  const composeEnhancers = __DEV__
+  const composeEnhancers = __DEVELOP__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     : compose;
 

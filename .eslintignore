@@ -1,5 +1,3 @@
-webpack
-*.json
 dist
 node_modules
 flow-typed

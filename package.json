@@ -21,6 +21,7 @@
   "license": "MIT",
   "repository": "https://github.com/elsewhencode/react-redux-saucepan",
   "dependencies": {
+    "axios": "0.18.0",
     "compression": "1.7.2",
     "dotenv": "5.0.1",
     "express": "4.16.3",
@@ -32,8 +33,7 @@
     "react-router-dom": "4.2.2",
     "redux": "4.0.0",
     "redux-thunk": "2.2.0",
-    "styled-components": "3.2.6",
-    "superagent": "3.8.3"
+    "styled-components": "3.2.6"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
@@ -62,7 +62,6 @@
     "flow-coverage-report": "0.5.0",
     "flow-webpack-plugin": "1.2.0",
     "prettier-eslint": "8.8.1",
-    "prop-types": "15.6.1",
     "style-loader": "0.21.0",
     "stylelint": "9.2.0",
     "stylelint-config-standard": "18.2.0",

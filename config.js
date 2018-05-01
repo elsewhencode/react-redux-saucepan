@@ -7,7 +7,6 @@ const config = {
   WEB_PORT: PORT || '3000',
   ASSETS_PATH: '/assets/',
   HOST: HOST || '0.0.0.0',
-  APP_NAME: 'react-redux-saucepan',
 };
 
 module.exports = config;

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
@@ -21,10 +21,10 @@ const preloadedState: string = window.__PRELOADED_STATE__;
 const rootElement: Element | null = document.getElementById('app');
 const store: Store = initStore(preloadedState);
 
-const provideAppwithStore: (typeof App, Store) => React$Element<any> = (
-  AppComponent,
-  reduxStore,
-) => (
+const provideAppwithStore = (
+  AppComponent: typeof App,
+  reduxStore: Store,
+): React.Element<any> => (
   <Provider store={reduxStore}>
     <ErrorBoundry>
       <BrowserRouter>
@@ -34,7 +34,7 @@ const provideAppwithStore: (typeof App, Store) => React$Element<any> = (
   </Provider>
 );
 
-const appWithHotReload = hot(module)(App);
+const appWithHotReload: typeof App = hot(module)(App);
 if (rootElement instanceof HTMLElement) {
   ReactDOM.render(provideAppwithStore(appWithHotReload, store), rootElement);
 }
