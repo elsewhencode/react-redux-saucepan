@@ -1,28 +1,23 @@
 // @flow
 
-import get from '../utils/apiCall';
+import axios from 'axios';
 import { type RepoType } from '../shared/reducers/reposList';
 
 export async function fetchReposList(org: string = 'facebook'): Promise<RepoType[]> {
   try {
-    // TODO: set endpoint baseline based on config and env
-    const { body }: { body: RepoType[] } = await get(`https://api.github.com/orgs/${org}/repos`);
-    return body;
+    const { data }: { data: RepoType[] } = await axios.get(`https://api.github.com/orgs/${org}/repos`);
+    return data;
   } catch (err) {
-    // todo: read about throw error stuff
-    console.log(err);
     throw new Error(err);
   }
 }
 
+// TODO: this bit is not needed yet
 export async function fetchRepoDetails(org: string, name: string): Promise<{}> {
   try {
-    // TODO: set endpoint baseline based on config and env
-    const { body }: { body: {} } = await get(`https://api.github.com/repos/${org}/${name}`);
-    return body;
+    const { data }: { data: {} } = await axios.get(`https://api.github.com/repos/${org}/${name}`);
+    return data;
   } catch (err) {
-    // todo: read about throw error stuff
-    console.log(err);
     throw new Error(err);
   }
 }
