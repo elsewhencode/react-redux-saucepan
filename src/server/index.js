@@ -4,6 +4,7 @@ import express from 'express';
 
 import routing from './routing';
 import { WEB_PORT, ASSETS_PATH, HOST } from './../../config';
+import log from './../shared/util/log';
 
 const app: express$Application = express();
 app.use(compression());
@@ -21,5 +22,5 @@ app.get('*.js', (req: express$Request, res: express$Response, next) => {
 routing(app);
 
 app.listen(WEB_PORT, () => {
-  console.log(`Server running on ${HOST}:${WEB_PORT} (production)`);
+  log(`Server running on ${HOST}:${WEB_PORT} (production)`);
 });
