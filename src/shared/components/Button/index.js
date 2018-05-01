@@ -1,11 +1,11 @@
 // @flow
-import React, { type Element } from 'react';
+import * as React from 'react';
 
 type Props = {
   onClick: () => mixed,
 };
 
-const Button = ({ onClick }: Props): Element<any> => (
+const Button = ({ onClick }: Props): React.Element<any> => (
   <button onClick={onClick}>fetch</button>
 );
 

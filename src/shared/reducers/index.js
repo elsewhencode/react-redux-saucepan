@@ -18,7 +18,7 @@ export type AppStateType = {
 
 // more info on this:
 // https://stackoverflow.com/questions/34106975/react-redux-router-uncaught-error-expected-the-reducer-to-be-a-function
-const rootReducer: () => mixed = combineReducers(({
+const rootReducer: any => AppStateType = combineReducers(({
   reposList,
 }: Parameters));
 
