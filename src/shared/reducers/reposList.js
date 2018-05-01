@@ -1,5 +1,5 @@
 // @flow
-import get from './../../utils/apiCall';
+import axios from 'axios';
 
 // action constants
 export const GET_REPOS_LIST_REQUEST: 'GET_REPOS_LIST_REQUEST' =
@@ -99,10 +99,9 @@ export function fetchReposList(org: string = 'facebook'): ThunkAction {
     dispatch({ type: GET_REPOS_LIST_REQUEST });
 
     try {
-      // TODO: set endpoint baseline based on config and env
-      const { body }: { body: RepoType[] } = await get(`https://api.github.com/orgs/${org}/repos`);
+      const { data }: { data: RepoType[] } = await axios.get(`https://api.github.com/orgs/${org}/repos`);
 
-      dispatch({ type: GET_REPOS_LIST_SUCCESS, payload: body });
+      dispatch({ type: GET_REPOS_LIST_SUCCESS, payload: data });
     } catch (error) {
       // sending generic error message
       dispatch({

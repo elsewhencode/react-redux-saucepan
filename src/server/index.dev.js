@@ -10,6 +10,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../../scripts/webpack.dev';
 import html from './html';
 import { WEB_PORT, HOST } from './../../config';
+import log from '../shared/util/log';
 
 const app: express$Application = express();
 app.use(express.static('static'));
@@ -18,27 +19,22 @@ const compiler = webpack(webpackConfig);
 
 app.use(webpackDevMiddleware(compiler, {
   heartbeat: 2000,
-  quiet: true,
-  noInfo: true,
+  log: false,
   publicPath: webpackConfig.output.publicPath,
   stats: { colors: true },
-  // todo: remove if not needed
-  headers: {
-    'Access-Control-Allow-Credentials': true,
-    'Access-Control-Allow-Origin': `http://${HOST}:${WEB_PORT}`,
-  },
 }));
 app.use(webpackHotMiddleware(compiler));
 
+// just throws back an empty html page.
 app.get('*', (req: express$Request, res: express$Response) => {
   res.status(200).send(html());
 });
 
 app.listen(WEB_PORT, HOST, (err) => {
   if (err) {
-    console.error(err);
+    log(err);
     return;
   }
 
-  console.log(`Server running at ${HOST}:${WEB_PORT} (Auto Refresh)`);
+  log(`Server running at ${HOST}:${WEB_PORT} (Auto Refresh)`);
 });

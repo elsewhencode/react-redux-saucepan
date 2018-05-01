@@ -82,7 +82,7 @@ module.exports = {
       __CLIENT__: true,
       __SERVER__: false,
       __PRODUCTION__: false,
-      __DEV__: true,
+      __DEVELOP__: true,
     }),
 
     new ExtractTextPlugin('app.css'),

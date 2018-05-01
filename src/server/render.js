@@ -9,7 +9,7 @@ import { ServerStyleSheet } from 'styled-components';
 import initStore from '../shared/store';
 import html from './html';
 import App from '../shared/App';
-import { type AppStateType } from './../shared/reducers';
+import type { AppStateType } from './../shared/reducers';
 
 export default function render(
   location: string,

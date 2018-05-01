@@ -1,8 +1,8 @@
 // @flow
-import React, { type Node, Fragment } from 'react';
+import * as React from 'react';
 
 type Props = {
-  children?: Node,
+  children?: React.Node,
 };
 
 type State = {
@@ -29,11 +29,11 @@ export default class ErrorBoundary extends React.Component<Props, State> {
     if (hasError) {
       // You can render any custom fallback UI
       return (
-        <Fragment>
+        <React.Fragment>
           <h3>React error</h3>
           <pre>{error && error.toString()}</pre>
           <pre>{info && ('No componentStack info' || info.componentStack)}</pre>
-        </Fragment>
+        </React.Fragment>
       );
     }
     return this.props.children;

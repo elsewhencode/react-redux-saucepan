@@ -81,7 +81,7 @@ module.exports = {
       __CLIENT__: false,
       __SERVER__: true,
       __PRODUCTION__: true,
-      __DEV__: false,
+      __DEVELOP__: false,
     }),
     new ExtractTextPlugin('app.css'),
     new webpack.DefinePlugin({

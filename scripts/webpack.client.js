@@ -72,7 +72,7 @@ module.exports = {
       __CLIENT__: true,
       __SERVER__: false,
       __PRODUCTION__: true,
-      __DEV__: false,
+      __DEVELOP__: false,
     }),
     // Any dev code which is 'develop' will be considered as dead code and will be eliminated
     new webpack.DefinePlugin({
