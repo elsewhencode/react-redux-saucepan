@@ -23,6 +23,6 @@
     "__CLIENT__": false,
     "__SERVER__": false,
     "__PRODUCTION__": false,
-    "__DEV__": false
+    "__DEVELOP__": false
   }
 }
