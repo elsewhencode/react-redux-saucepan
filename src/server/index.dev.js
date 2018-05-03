@@ -9,7 +9,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import webpackConfig from '../../scripts/webpack.dev';
 import html from './html';
-import { WEB_PORT, HOST } from './../../config';
+import { WEB_PORT, HOST } from './../config';
 
 const app: express$Application = express();
 app.use(express.static('static'));
