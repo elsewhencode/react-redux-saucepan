@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 
 /* eslint-enable import/no-extraneous-dependencies */
-const { ASSETS_PATH } = require('../config');
+const { ASSETS_PATH } = require('./../src/config');
 
 const srcPath = path.resolve(__dirname, '../src/client');
 
