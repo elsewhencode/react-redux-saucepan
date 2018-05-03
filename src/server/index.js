@@ -4,7 +4,7 @@ import express from 'express';
 
 import routing from './routing';
 import { WEB_PORT, ASSETS_PATH, HOST } from './../../config';
-import log from './../shared/util/log';
+import log from '../util/log';
 
 const app: express$Application = express();
 app.use(compression());

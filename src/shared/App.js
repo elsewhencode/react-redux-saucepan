@@ -3,10 +3,10 @@ import React, { Fragment } from 'react';
 import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
 
-import NotFoundPage from './containers/NotFoundPage';
-import ReposPage from './containers/ReposPage';
-import AboutPage from './containers/AboutPage';
-import HomePage from './containers/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
+import ReposPage from './pages/ReposPage';
+import AboutPage from './pages/AboutPage';
+import HomePage from './pages/HomePage';
 import Navigation from './components/Nav';
 
 import {

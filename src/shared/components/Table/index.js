@@ -2,24 +2,26 @@
 import React, { Component, Fragment } from 'react';
 
 import Loading from './../Loading';
-import type { RepoType } from '../../reducers/reposList';
 
-// // FIXME: there is a flow-typed issue that gives flow error per each defined prop type here
+// this coponent suppose to be a neutral table that renders any array of JSON based on give keys
+// Because of its independecne it's placed in compoenent folder.
 type Props = {
-  data: RepoType[],
+  // flow-disable-next-line
+  data: { id: number }[],
+  columnKeys: string[],
   loading: boolean,
   dataFetchedByServer: boolean,
   preLoadedDataIsViewd: () => mixed,
-  fetchReposList: () => mixed,
+  fetchData: () => mixed,
 };
 
 export default class Table extends Component<Props> {
   componentDidMount() {
-    const { dataFetchedByServer, fetchReposList } = this.props;
+    const { dataFetchedByServer, fetchData } = this.props;
 
     // first time visiting this component, no need to fetch the data
     if (!dataFetchedByServer) {
-      fetchReposList();
+      fetchData();
     }
   }
 
@@ -33,7 +35,9 @@ export default class Table extends Component<Props> {
   }
 
   render() {
-    const { data, loading, dataFetchedByServer } = this.props;
+    const {
+      data, loading, dataFetchedByServer, columnKeys,
+    } = this.props;
 
     return (
       <Fragment>
@@ -47,19 +51,13 @@ export default class Table extends Component<Props> {
         <table border="1">
           <thead>
             <tr>
-              <td>name</td>
-              <td>id</td>
-              <td>stars</td>
-              <td>forks</td>
+              {columnKeys.map(column => <th key={column}> {column} </th>)}
             </tr>
           </thead>
           <tbody>
             {data.map(repoItem => (
               <tr key={repoItem.id}>
-                <td>{repoItem.name}</td>
-                <td>{repoItem.id}</td>
-                <td>{repoItem.stargazers_count}</td>
-                <td>{repoItem.forks_count}</td>
+                {columnKeys.map(key => <td key={key}> {repoItem[key]} </td>)}
               </tr>
             ))}
           </tbody>

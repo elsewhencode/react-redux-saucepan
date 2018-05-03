@@ -2,8 +2,8 @@
 
 import { connect } from 'react-redux';
 
-import { fetchReposList } from '../../reducers/reposList';
-import Button from '../../components/Button';
+import { fetchReposList } from '../reducer';
+import Button from '../../../components/Button';
 
 // FIXME: waiting for the MapDispatchToProps to be fixed.
 // link: https://github.com/flowtype/flow-typed/pull/2105

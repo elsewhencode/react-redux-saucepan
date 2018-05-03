@@ -1,7 +1,15 @@
 // @flow
 
 import axios from 'axios';
-import { type RepoType } from '../shared/reducers/reposList';
+
+// Typing the responce you will get,
+// it's used by reducers to expect what kinda data they should expect
+export type RepoType = {
+  +name: string,
+  +id: number,
+  +stargazers_count: number,
+  +forks_count: number,
+};
 
 export async function fetchReposList(org: string = 'facebook'): Promise<RepoType[]> {
   try {

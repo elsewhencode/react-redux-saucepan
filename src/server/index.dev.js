@@ -10,7 +10,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../../scripts/webpack.dev';
 import html from './html';
 import { WEB_PORT, HOST } from './../../config';
-import log from '../shared/util/log';
 
 const app: express$Application = express();
 app.use(express.static('static'));
@@ -32,9 +31,9 @@ app.get('*', (req: express$Request, res: express$Response) => {
 
 app.listen(WEB_PORT, HOST, (err) => {
   if (err) {
-    log(err);
+    console.log(err); // eslint-disable-line no-console
     return;
   }
-
-  log(`Server running at ${HOST}:${WEB_PORT} (Auto Refresh)`);
+  // eslint-disable-next-line no-console
+  console.log(`Server running at ${HOST}:${WEB_PORT} (Auto Refresh)`);
 });
