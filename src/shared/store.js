@@ -1,7 +1,7 @@
 // @flow
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer, { type AppStateType } from './reducers';
+import rootReducer, { type AppStateType } from './rootReducer';
 
 // TODO: review the type
 const middlewares: [any] = [thunkMiddleware];

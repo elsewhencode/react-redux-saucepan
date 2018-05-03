@@ -5,13 +5,14 @@ import {
   ROOT_PAGE_ROUTE,
   ABOUT_PAGE_ROUTE,
   REPOS_LIST_PAGE_ROUTE,
-  // REPO_DETAILS_PAGE_ROUTE,
 } from '../shared/routes';
 
 // these functions load the data
-import { fetchReposList } from './controller';
+import { fetchReposList } from './../shared/api';
 import render from './render';
-import { initialState as reposListInitialState } from '../shared/reducers/reposList';
+
+// just importing the type for extra checks
+import { initialState as reposListInitialState } from '../shared/pages/ReposPage/reducer';
 
 export default (app: express$Application) => {
   app.get(
@@ -29,27 +30,15 @@ export default (app: express$Application) => {
       res.status(200).send(render(url, {
         reposList: {
           ...reposListInitialState,
-          data: await fetchReposList(params.clientid),
+          data: await fetchReposList(params.org),
         },
       }));
     },
   );
 
-  // FIXME: implement repo detail feature
-  // app.get(
-  //   REPO_DETAILS_PAGE_ROUTE,
-  //   async ({ params, url }: express$Request, res: express$Response) => {
-  //     res
-  //       .status(200)
-  //       // in here we should construct the structure of state to give it to store
-  //       // this shoould be improved
-  //       .send(render(url, await fetchRepoDetails(params.org, params.name)));
-  //   },
-  // );
-
   app.get(ERROR_PAGE_ROUTE, () => {
     // FIXME: propper error needed
-    throw Error('Fake Internal Server Error');
+    throw new Error('Fake Internal Server Error');
   });
 
   app.get('*', (req: express$Request, res: express$Response) => {

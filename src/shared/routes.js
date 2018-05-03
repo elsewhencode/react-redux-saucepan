@@ -5,4 +5,3 @@ export const ERROR_PAGE_ROUTE: '/500' = '/500';
 export const ROOT_PAGE_ROUTE: '/' = '/';
 export const ABOUT_PAGE_ROUTE: '/about' = '/about';
 export const REPOS_LIST_PAGE_ROUTE: '/repos' = '/repos';
-export const REPO_DETAILS_PAGE_ROUTE: '/repos/:repoId' = '/repos/:repoId';

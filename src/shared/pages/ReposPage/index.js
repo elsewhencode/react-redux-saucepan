@@ -2,8 +2,8 @@
 
 import React, { Fragment } from 'react';
 
-import ReposList from './ReposList';
-import GetReposAsyncButton from './GetReposAsyncButton';
+import ReposList from './containers/ReposList';
+import GetReposAsyncButton from './containers/GetReposAsyncButton';
 
 type Props = {};
 
@@ -12,7 +12,9 @@ export default class ReposListPage extends React.Component<Props> {
   render() {
     return (
       <Fragment>
-        <ReposList />
+        <ReposList
+          columnKeys={['name', 'id', 'stargazers_count', 'forks_count']}
+        />
         <GetReposAsyncButton />
       </Fragment>
     );
