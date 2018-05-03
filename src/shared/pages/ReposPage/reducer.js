@@ -1,6 +1,8 @@
 // @flow
 import axios from 'axios';
 
+import type { RepoType } from '../../api';
+
 // action constants
 export const GET_REPOS_LIST_REQUEST: 'GET_REPOS_LIST_REQUEST' =
   'GET_REPOS_LIST_REQUEST';
@@ -11,21 +13,14 @@ export const GET_REPOS_LIST_FAILURE: 'GET_REPOS_LIST_FAILURE' =
 export const PRE_LOADED_DATA_IS_VIEWED: 'PRE_LOADED_DATA_IS_VIEWED' =
   'PRE_LOADED_DATA_IS_VIEWED';
 
-// Typing Redux state immutability by adding +
-
-export type RepoType = {
-  +name: string,
-  +id: number,
-  +stargazers_count: number,
-  +forks_count: number,
-};
-
+export type ArrayOfReposType = RepoType[];
+// Typing Redux state immutability by adding
 // didn't use 'exact' for this reason https://github.com/facebook/flow/issues/2405
 export type ReposListStateType = {
   +loading: boolean,
   +dataFetchedByServer: boolean,
   +error: ?string,
-  +data: RepoType[],
+  +data: ArrayOfReposType,
 };
 
 // Using disjoint unions, Flow will be able to understand your reducers much better.

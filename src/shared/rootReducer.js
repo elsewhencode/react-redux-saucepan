@@ -5,7 +5,7 @@ import { combineReducers } from 'redux';
 import reposList, {
   type ReposListStateType,
   type ReposListReducerType,
-} from './reposList';
+} from './pages/ReposPage/reducer';
 
 // type of reducers combineReducers takes
 type Parameters = {
