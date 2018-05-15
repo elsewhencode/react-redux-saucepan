@@ -1,4 +1,4 @@
-![Elsewhen](./docs/images/saucepan.png)
+![Elsewhen](./docs/images/saucepan-lg.png)
 
 # React Redux Saucepan
 
