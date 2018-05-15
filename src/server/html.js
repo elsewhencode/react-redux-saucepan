@@ -1,5 +1,5 @@
 // @flow
-import { ASSETS_PATH } from '../../src/config';
+import { ASSETS_PATH } from '../../config';
 
 export default function generateHtmlPage(
   plainPartialState: any = {},

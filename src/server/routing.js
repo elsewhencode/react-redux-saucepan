@@ -46,7 +46,7 @@ export default (app: express$Application) => {
   });
 
   app.use((err: ?Error, req: express$Request, res: express$Response): mixed => {
-    console.error(err);
+    console.error(err); // eslint-disable-line no-console
     res.status(500).send('Something went wrong!');
   });
 };
