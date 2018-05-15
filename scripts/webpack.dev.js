@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 /* eslint-enable import/no-extraneous-dependencies */
-const { ASSETS_PATH } = require('./../src/config');
+const { ASSETS_PATH } = require('./../config');
 
 const srcPath = path.resolve(__dirname, '../src/client');
 const buildPath = path.resolve(__dirname, '../dist');

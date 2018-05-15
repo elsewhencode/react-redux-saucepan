@@ -14,6 +14,7 @@ This is a universal react project. It provides serverside rendering and uses Flo
 
 
 
+
 ## Installing / Getting started
 ![Getting started](/docs/images/install.png)
 

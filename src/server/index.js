@@ -3,7 +3,7 @@ import compression from 'compression';
 import express from 'express';
 
 import routing from './routing';
-import { WEB_PORT, ASSETS_PATH, HOST } from './../config';
+import { WEB_PORT, ASSETS_PATH, HOST } from '../../config';
 import log from '../util/log';
 
 const app: express$Application = express();
