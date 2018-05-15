@@ -8,10 +8,7 @@
   "description": "Elsewhen's universal react redux starter kit",
   "main": "index.js",
   "scripts": {
-    "clean":
-      "rm -rf ./node_modules && npm cache verify && rm ./package-lock.json",
-    "flow":
-      " flow './src' && flow-coverage-report -i 'src/**/*.js' -x 'src/test/**'",
+    "flow": " flow './src' && flow-coverage-report --config ./.flowcoverage",
     "start:dev":
       "rm -rf ./dist/* && babel-watch ./src/server/index.dev.js -w ./server",
     "start": "node dist/index.js",

@@ -1,5 +1,8 @@
 [ignore]
 <PROJECT_ROOT>/node_modules
+<PROJECT_ROOT>/dist/.*
+<PROJECT_ROOT>/docs/.*
+<PROJECT_ROOT>/static/.*
 
 [include]
 <PROJECT_ROOT>/src
@@ -24,3 +27,5 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 
 [strict]
 
+[version]
+0.72.0

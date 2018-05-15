@@ -5,11 +5,17 @@
 [![Build Status](https://img.shields.io/travis/elsewhencode/react-redux-saucepan.svg?style=flat-square)](https://travis-ci.org/elsewhencode/react-redux-saucepan) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
 [![dependencies Status](https://david-dm.org/elsewhencode/react-redux-saucepan/status.svg?style=flat-square)](https://david-dm.org/elsewhencode/react-redux-saucepan)  [![devDependencies Status](https://david-dm.org/elsewhencode/react-redux-saucepan/dev-status.svg?style=flat-square)](https://david-dm.org/elsewhencode/react-redux-saucepan?type=dev)
-> This README is not done (yet) !
+> A minimal Universal React JS stack using [flow types][flow].
 
-A brief description of your project, what it is used for.
+This is a universal react project. It provides serverside rendering and uses Flow syntax. We put together React Redux Saucepan here at [elsewhen](http://elsewhen.co), therefore we do our best to keep this maintained and updated. We also know love to make this better for you and us so all your issues, questions, suggestions and PRs are more than welcome :).
+
+## What's inside
+![Git](/docs/images/dispenser.png)
+
+
 
 ## Installing / Getting started
+![Getting started](/docs/images/install.png)
 
 A quick introduction of the minimal setup you need to get a hello world up &
 running.
@@ -20,17 +26,21 @@ commands here
 
 Here you should say what actually happens when you execute the code above.
 
+
+## Commands
+![Git](/docs/images/console.png)
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+## Project Structure
+![Project Structure](/docs/images/folders.png)
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
 ## Developing
+![Developing](/docs/images/development.png)
 
-### Built With
-
-List main libraries, frameworks used including versions (React, Angular etc...)
-
-### Prerequisites
-
-What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
-
-### Setting up Dev
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 Here's a brief intro about what a developer must do in order to start developing
 the project further:
@@ -43,7 +53,10 @@ packagemanager install
 
 And state what happens step-by-step. If there is any virtual environment, local server or database feeder needed, explain here.
 
-### Building
+### Building for production
+![Project Structure](/docs/images/production.png)
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 If your project needs some additional steps for the developer to build the
 project after some code changes, state them here. for example:
@@ -57,28 +70,18 @@ make install
 Here again you should state what actually happens when the code above gets
 executed.
 
-### Deploying / Publishing
-
-give instructions on how to build and release a new version
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
-```shell
-packagemanager deploy your-project -s server.com -u username -p password
-```
-
-And again you'd need to tell what the previous code actually does.
-
-## Versioning
-
-We can maybe use [SemVer](http://semver.org/) for versioning. For the versions available, see the [link to tags on this repository](/tags).
 
 ## Configuration
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 Here you should write what are all of the configurations a user can enter when
 using the project.
 
 ## Tests
+![Tests](/docs/images/testing.png)
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 Describe and show how to run the tests with code examples.
 Explain what these tests test and why.
@@ -87,18 +90,26 @@ Explain what these tests test and why.
 Give an example
 ```
 
-## Style guide
+## Project guidelines
+![Project guidelines](/docs/images/project-guidelines.png)
 
 Explain your code style and show how to check it.
 
-## Api Reference
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+## Code style and linting
+![code style](/docs/images/code-style.png)
+
+Explain your code style and show how to check it.
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+## Api
+![Project guidelines](/docs/images/api.png)
 
 If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
 
-## Database
-
-Explaining what database (and version) has been used. Provide download links.
-Documents your database design and schemas, relations etc...
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 ## Licensing
 
