@@ -119,10 +119,57 @@ npm test
 ## Project Structure
 ![Project Structure](/docs/images/folders.png)
 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
+```
+.
+├── dist
+|   
+├── docs
+|
+├── flow-typed
+|
+├── scripts
+|   ├── webpack.client.js
+|   ├── webpack.dev.js
+|   └── webpack.server.js
+|
+├── src
+|   ├── client
+|   |   └── ...
+|   |
+|   ├── server
+|   |   └── ...
+|   |
+|   ├── shared
+|   |   ├── api
+|   |   |   └── ...
+|   |   |
+|   |   ├── components
+|   |   |   └── ...
+|   |   |    
+|   |   └── pages
+|   |       └── ...
+|   |
+|   └── util
+|
+└──  static
+```
+
+### So, what is `client`,`server` and `shared` folders?
+Work in progress...
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+### Why reducers and containers are in pages?
+Work in progress...
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 ## Developing
 ![Developing](/docs/images/development.png)
+
+Work in progress...
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
@@ -130,25 +177,22 @@ Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
 ```shell
-git clone https://github.com/your/your-project.git
-cd your-project/
-packagemanager install
+npm run start:dev
 ```
 
-And state what happens step-by-step. If there is any virtual environment, local server or database feeder needed, explain here.
+Here again you should state what actually happens when the code above gets
+executed.
 
 ### Building for production
 ![Project Structure](/docs/images/production.png)
 
+Work in progress...
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here. for example:
 
 ```shell
-./configure
-make
-make install
+npm start
 ```
 
 Here again you should state what actually happens when the code above gets
@@ -156,6 +200,8 @@ executed.
 
 
 ## Configuration
+
+Work in progress...
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
@@ -171,18 +217,20 @@ Describe and show how to run the tests with code examples.
 Explain what these tests test and why.
 
 ```shell
-Give an example
+npm test
 ```
 
 ## Project guidelines
 ![Project guidelines](/docs/images/project-guidelines.png)
 
-Explain your code style and show how to check it.
+Work in progress...
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 ## Code style and linting
 ![code style](/docs/images/code-style.png)
+
+Work in progress...
 
 Explain your code style and show how to check it.
 
@@ -190,6 +238,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 ## Api
 ![Project guidelines](/docs/images/api.png)
+
+Work in progress...
 
 If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
 
