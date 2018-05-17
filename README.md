@@ -20,6 +20,8 @@ This is a universal react project. It provides serverside rendering and uses Flo
 
 [react-router 4](https://github.com/ReactTraining/react-router)
 
+[react-redux 4](https://github.com/reduxjs/react-redux)
+
 [redux 4](https://github.com/reduxjs/redux)
 
 [webpack 4](https://github.com/webpack/webpack)
@@ -41,7 +43,7 @@ This is a universal react project. It provides serverside rendering and uses Flo
 [babel(env)](https://github.com/babel/babel/tree/master/packages/babel-preset-env)
 
 
-## Installing and a quick start
+## Quick start
 ![Getting started](/docs/images/install.png)
 
 First make sure you have at least node 8, and we recommend using npm 6
@@ -70,11 +72,7 @@ npm i
 npm run start:dev
 ```
 
-- build and run it in production
-
-```shell
-npm start
-```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 ## Commands
@@ -119,7 +117,6 @@ npm test
 ## Project Structure
 ![Project Structure](/docs/images/folders.png)
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 ```
 .
@@ -159,62 +156,56 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 ### So, what is `client`,`server` and `shared` folders?
 Work in progress...
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 
 ### Why reducers and containers are in pages?
 Work in progress...
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-
 ## Developing
 ![Developing](/docs/images/development.png)
 
-Work in progress...
+When runing in development mode, there will be an express file: `./src/server/index.dev.js` that serves you. It will consume your dev webpack config in `./scripts/webpack.dev.js` using [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware). It will throw an empty html file (`./src/server/html.js`) which initiates the react app on browser (there is no serverside rendering in dev mode). This is the same html file that gets used in production, so you an have the same meta, favicon etc.. . Instead of using node to run `index.dev.js` we use [babel-watch](https://github.com/kmagiera/babel-watch). This enables you to use latest JS syntax on the server and watch for any changes and reload it if necessary.
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+There is hot reloading avialable to make development easier for you. Eslint, flow and stylelint are also checked on the fly as you add new code to the project. `./scripts/webpack.dev.js` sets the global `__DEVELOPMENT__` to `true` which you can use in your code.
 
-Here's a brief intro about what a developer must do in order to start developing
-the project further:
+To run the app in development mode, simply run:
+You can build the app by runing:
 
 ```shell
-npm run start:dev
+npm run build
 ```
 
-Here again you should state what actually happens when the code above gets
-executed.
+## Building for production
+![production](/docs/images/production.png)
 
-### Building for production
-![Project Structure](/docs/images/production.png)
+Build is done done by webpack for both server-side and client-side. Out put is set to `./dist` folder which is Webpack's default output directory. The process includes Flow type checking, linting, and transpiling for both client and server. You can find webpack configs in `./scripts` folder. 
 
-Work in progress...
+Transpiling is set in `.browserslistrc` using [browserslist](https://github.com/browserslist/browserslist) for your target browsers and done by [babel-env](https://babeljs.io/docs/plugins/preset-env/). 
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+There are global variables  set to help you check whether you're on client or server in the runtime: `__CLIENT__` and `__SERVER__`. Also both client and server webpack configs will set `__PRODUCTION__` global to `true` and `__DEVELOPMENT__` to `false`.
 
+You can build the app by runing:
+```shell
+npm run build
+```
 
+the you can run the app by runing:
+```shell
+node dist/index.js 
+```
+
+`build` script is also set as a prestart for starting the app in production mode. So you can run above steps at once:
 ```shell
 npm start
 ```
 
-Here again you should state what actually happens when the code above gets
-executed.
-
-
 ## Configuration
 
-Work in progress...
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-
-Here you should write what are all of the configurations a user can enter when
-using the project.
+Values that can set by developer are `WEB_PORT`, and `HOST` that can be set in a `.env` file which is read by `./config.js` and then used across the app.
 
 ## Tests
 ![Tests](/docs/images/testing.png)
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-
-Describe and show how to run the tests with code examples.
-Explain what these tests test and why.
+We havn't written any test yet and it's in our todo list is in our to do list. 🙈
 
 ```shell
 npm test
@@ -223,30 +214,28 @@ npm test
 ## Project guidelines
 ![Project guidelines](/docs/images/project-guidelines.png)
 
-Work in progress...
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+We try to follow our [Javascript project guidelines](https://github.com/elsewhencode/project-guidelines) as much as we can, but we also like to keep this app quite minimal. You will find most of the Elsewhen's project guidelines in the tools we use and the way folders are structures, as well as naming, linting and chosen dependencies.
 
 ## Code style and linting
 ![code style](/docs/images/code-style.png)
 
-Work in progress...
+This project uses [Airbnb's javascript style guide](https://github.com/airbnb/javascript) for Javascript syntax and `flowtype/recommended` for Flow syntax using `eslint-plugin-flowtype`.
 
-Explain your code style and show how to check it.
+For styles we use [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) which is checked by [Stylelint](https://stylelint.io/). This checks your style-components code using [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components).
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+You can check your code style by simply runing:
+
+```shell
+npm run lint
+```
+
 
 ## Api
 ![Project guidelines](/docs/images/api.png)
 
-Work in progress...
+React Redux Saucepan uses [Github rest api](https://developer.github.com/v3/) to represent some sample data. You can find the requests done by [axios](https://github.com/axios/axios) in `./src/shared/api/index.js`. Api calls are made in both client and server side (to include the data in serverside rendered markup).
 
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+## License
 
-## Licensing
-
-State what the license is and how to find the text version of the license.
-
-Icons by [icons8](https://icons8.com/)
+React Redux Saucepan is open source software [licensed as MIT](https://github.com/elsewhencode/react-redux-saucepan/blob/master/LICENSE).
