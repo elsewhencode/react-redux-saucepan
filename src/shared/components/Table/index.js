@@ -28,7 +28,7 @@ export default class Table extends Component<Props> {
   componentWillUnmount() {
     const { preLoadedDataIsViewd, dataFetchedByServer } = this.props;
 
-    // serverside renedered data is old now, next time it will be fetched by client
+    // server-side renedered data is old now, next time it will be fetched by client
     if (dataFetchedByServer) {
       preLoadedDataIsViewd();
     }

@@ -16,7 +16,7 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     index: [
-      // entry point of the app for serverside
+      // entry point of the app for server-side
       './index',
     ],
   },

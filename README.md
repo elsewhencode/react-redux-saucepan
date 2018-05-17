@@ -8,9 +8,9 @@
 
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
-> A minimal Universal React redux JS stack using [Flow](http://flowtype.org), with hot reloading, linting and serverside renderring.
+> A minimal Universal React redux JS stack using [Flow](http://flowtype.org), with hot reloading, linting and server-side rendering.
 
-This is a universal react project. It provides serverside rendering and uses Flow syntax. We put together React Redux Saucepan here at [elsewhen](http://elsewhen.co), and included the things you most likely need and ake out the things you may not want. We also do our best to keep this maintained and updated. Posting any issues, questions, suggestions and PRs are more than welcome :).
+This is a universal react project. It provides server-side rendering and uses Flow syntax. We put together React Redux Saucepan here at [elsewhen](http://elsewhen.co), and included the things you most likely need and take out the things you may not want. We also do our best to keep this maintained and updated. Posting any issues, questions, suggestions and PRs are more than welcome :).
 
 ## What's inside
 ![What's inside](/docs/images/dispenser.png)
@@ -163,12 +163,12 @@ Work in progress...
 ## Developing
 ![Developing](/docs/images/development.png)
 
-When runing in development mode, there will be an express file: `./src/server/index.dev.js` that serves you. It will consume your dev webpack config in `./scripts/webpack.dev.js` using [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware). It will throw an empty html file (`./src/server/html.js`) which initiates the react app on browser (there is no serverside rendering in dev mode). This is the same html file that gets used in production, so you an have the same meta, favicon etc.. . Instead of using node to run `index.dev.js` we use [babel-watch](https://github.com/kmagiera/babel-watch). This enables you to use latest JS syntax on the server and watch for any changes and reload it if necessary.
+When running in development mode, there will be an express file: `./src/server/index.dev.js` that serves you. It will consume your dev webpack config in `./scripts/webpack.dev.js` using [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware). It will throw an empty html file (`./src/server/html.js`) which initiates the react app on browser (there is no server-side rendering in dev mode). This is the same html file that gets used in production, so you an have the same meta, favicon etc.. . Instead of using node to run `index.dev.js` we use [babel-watch](https://github.com/kmagiera/babel-watch). This enables you to use latest JS syntax on the server and watch for any changes and reload it if necessary.
 
-There is hot reloading avialable to make development easier for you. Eslint, flow and stylelint are also checked on the fly as you add new code to the project. `./scripts/webpack.dev.js` sets the global `__DEVELOPMENT__` to `true` which you can use in your code.
+There is hot reloading available to make development easier for you. Eslint, flow and stylelint are also checked on the fly as you add new code to the project. `./scripts/webpack.dev.js` sets the global `__DEVELOPMENT__` to `true` which you can use in your code.
 
 To run the app in development mode, simply run:
-You can build the app by runing:
+You can build the app by running:
 
 ```shell
 npm run build
@@ -177,18 +177,18 @@ npm run build
 ## Building for production
 ![production](/docs/images/production.png)
 
-Build is done done by webpack for both server-side and client-side. Out put is set to `./dist` folder which is Webpack's default output directory. The process includes Flow type checking, linting, and transpiling for both client and server. You can find webpack configs in `./scripts` folder. 
+Build is done by webpack for both server-side and client-side. The output is set to `./dist` folder which is Webpack's default output directory. The process includes Flow type checking, linting, and transpiling for both client and server. You can find webpack configs in `./scripts` folder. 
 
 Transpiling is set in `.browserslistrc` using [browserslist](https://github.com/browserslist/browserslist) for your target browsers and done by [babel-env](https://babeljs.io/docs/plugins/preset-env/). 
 
 There are global variables  set to help you check whether you're on client or server in the runtime: `__CLIENT__` and `__SERVER__`. Also both client and server webpack configs will set `__PRODUCTION__` global to `true` and `__DEVELOPMENT__` to `false`.
 
-You can build the app by runing:
+You can build the app by running:
 ```shell
 npm run build
 ```
 
-the you can run the app by runing:
+the you can run the app by running:
 ```shell
 node dist/index.js 
 ```
@@ -223,7 +223,7 @@ This project uses [Airbnb's javascript style guide](https://github.com/airbnb/ja
 
 For styles we use [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) which is checked by [Stylelint](https://stylelint.io/). This checks your style-components code using [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components).
 
-You can check your code style by simply runing:
+You can check your code style by simply running:
 
 ```shell
 npm run lint
@@ -233,7 +233,7 @@ npm run lint
 ## Api
 ![Project guidelines](/docs/images/api.png)
 
-React Redux Saucepan uses [Github rest api](https://developer.github.com/v3/) to represent some sample data. You can find the requests done by [axios](https://github.com/axios/axios) in `./src/shared/api/index.js`. Api calls are made in both client and server side (to include the data in serverside rendered markup).
+React Redux Saucepan uses [Github rest api](https://developer.github.com/v3/) to represent some sample data. You can find the requests done by [axios](https://github.com/axios/axios) in `./src/shared/api/index.js`. Api calls are made in both client and server side (to include the data in server-side rendered markup).
 
 
 ## License
