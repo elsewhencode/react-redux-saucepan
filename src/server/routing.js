@@ -8,7 +8,7 @@ import {
 } from '../shared/routes';
 
 // these functions load the data
-import { fetchReposList } from './../shared/api';
+import { fetchReposList } from '../shared/api';
 import render from './render';
 
 // just importing the type for extra checks

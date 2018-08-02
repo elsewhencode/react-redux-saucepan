@@ -200,7 +200,7 @@ npm start
 
 ## Configuration
 
-Values that can set by developer are `WEB_PORT`, and `HOST` that can be set in a `.env` file which is read by `./config.js` and then used across the app.
+Values that can set by developer are `PORT`, and `HOST` that can be set in a `.env` file which is read by `./config.js` and then used across the app.
 
 ## Tests
 ![Tests](/docs/images/testing.png)

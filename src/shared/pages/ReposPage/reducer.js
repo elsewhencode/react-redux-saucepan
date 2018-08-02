@@ -4,14 +4,10 @@ import axios from 'axios';
 import type { RepoType } from '../../api';
 
 // action constants
-export const GET_REPOS_LIST_REQUEST: 'GET_REPOS_LIST_REQUEST' =
-  'GET_REPOS_LIST_REQUEST';
-export const GET_REPOS_LIST_SUCCESS: 'GET_REPOS_LIST_SUCCESS' =
-  'GET_REPOS_LIST_SUCCESS';
-export const GET_REPOS_LIST_FAILURE: 'GET_REPOS_LIST_FAILURE' =
-  'GET_REPOS_LIST_FAILURE';
-export const PRE_LOADED_DATA_IS_VIEWED: 'PRE_LOADED_DATA_IS_VIEWED' =
-  'PRE_LOADED_DATA_IS_VIEWED';
+export const GET_REPOS_LIST_REQUEST: 'GET_REPOS_LIST_REQUEST' = 'GET_REPOS_LIST_REQUEST';
+export const GET_REPOS_LIST_SUCCESS: 'GET_REPOS_LIST_SUCCESS' = 'GET_REPOS_LIST_SUCCESS';
+export const GET_REPOS_LIST_FAILURE: 'GET_REPOS_LIST_FAILURE' = 'GET_REPOS_LIST_FAILURE';
+export const PRE_LOADED_DATA_IS_VIEWED: 'PRE_LOADED_DATA_IS_VIEWED' = 'PRE_LOADED_DATA_IS_VIEWED';
 
 export type ArrayOfReposType = RepoType[];
 // Typing Redux state immutability by adding
@@ -33,9 +29,7 @@ export type ReposListActionTypes =
 // FIXME: check if state is partial
 type GetState = () => ReposListStateType;
 type PromiseAction = Promise<ReposListActionTypes>;
-type Dispatch = (
-  action: ReposListActionTypes | PromiseAction | Array<ReposListActionTypes>,
-) => any;
+type Dispatch = (action: ReposListActionTypes | PromiseAction | Array<ReposListActionTypes>) => any;
 type ThunkAction = (dispatch: Dispatch, getState: GetState) => any;
 
 export const initialState: ReposListStateType = {
@@ -92,9 +86,10 @@ export default reducer;
 export function fetchReposList(org: string = 'facebook'): ThunkAction {
   return async (dispatch) => {
     dispatch({ type: GET_REPOS_LIST_REQUEST });
-
     try {
-      const { data }: { data: RepoType[] } = await axios.get(`https://api.github.com/orgs/${org}/repos`);
+      const { data }: { data: RepoType[] } = await axios.get(
+        `https://api.github.com/orgs/${org}/repos`,
+      );
 
       dispatch({ type: GET_REPOS_LIST_SUCCESS, payload: data });
     } catch (error) {

@@ -1,8 +1,7 @@
 [ignore]
 <PROJECT_ROOT>/node_modules
-<PROJECT_ROOT>/dist/.*
-<PROJECT_ROOT>/docs/.*
-<PROJECT_ROOT>/static/.*
+<PROJECT_ROOT>/dist
+<PROJECT_ROOT>/static
 
 [include]
 <PROJECT_ROOT>/src
@@ -19,8 +18,10 @@ module.file_ext=.jsx
 module.file_ext=.json
 module.file_ext=.css
 module.file_ext=.scss
+module.file_ext=.svg
 module.name_mapper.extension='css' -> 'empty/objec'
 module.name_mapper.extension='scss' -> 'empty/object'
+module.name_mapper.extension='svg' -> 'empty/object'
 suppress_type=$FlowFixMe
 suppress_comment= \\(.\\|\n\\)*\\flow-disable-next-line
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
@@ -28,4 +29,4 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 [strict]
 
 [version]
-0.72.0
+0.77.0

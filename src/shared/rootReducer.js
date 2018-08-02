@@ -2,14 +2,16 @@
 import { combineReducers } from 'redux';
 
 // importing reducers and their relavant types
-import reposList, {
-  type ReposListStateType,
-  type ReposListReducerType,
+import type {
+  ReposListStateType,
+  // fixme: this type comes as undefined
+  // ReposListReducerType,
 } from './pages/ReposPage/reducer';
+import reposList from './pages/ReposPage/reducer';
 
 // type of reducers combineReducers takes
 type Parameters = {
-  reposList: ReposListReducerType,
+  reposList: any, // fixme: this shouldnt be any
 };
 
 export type AppStateType = {
