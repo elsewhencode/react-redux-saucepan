@@ -1,13 +1,13 @@
 // @flow
 import React, { Component, Fragment } from 'react';
+import type { RepoType } from '../../api';
 
-import Loading from './../Loading';
+import Loading from '../Loading';
 
 // this coponent suppose to be a neutral table that renders any array of JSON based on give keys
 // Because of its independecne it's placed in compoenent folder.
 type Props = {
-  // flow-disable-next-line
-  data: { id: number }[],
+  data: RepoType[],
   columnKeys: string[],
   loading: boolean,
   dataFetchedByServer: boolean,
@@ -42,22 +42,39 @@ export default class Table extends Component<Props> {
     return (
       <Fragment>
         <p>
-          Component and its data were served by{' '}
-          {dataFetchedByServer ? 'server ' : 'client '}. Data fetch did{' '}
-          {dataFetchedByServer ? ' not' : ''} happen on componentDidMount
+          Component and its data were served by
+          {' '}
+          {dataFetchedByServer ? 'server ' : 'client '}
+          . Data fetch did
+          {' '}
+          {dataFetchedByServer ? ' not' : ''}
+          {' '}
+happen on componentDidMount
         </p>
 
         {loading && <Loading />}
         <table border="1">
           <thead>
             <tr>
-              {columnKeys.map(column => <th key={column}> {column} </th>)}
+              {columnKeys.map(column => (
+                <th key={column}>
+                  {' '}
+                  {column}
+                  {' '}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
             {data.map(repoItem => (
               <tr key={repoItem.id}>
-                {columnKeys.map(key => <td key={key}> {repoItem[key]} </td>)}
+                {columnKeys.map(key => (
+                  <td key={key}>
+                    {' '}
+                    {repoItem[key]}
+                    {' '}
+                  </td>
+                ))}
               </tr>
             ))}
           </tbody>

@@ -13,4 +13,7 @@ const mapDispatchToProps: any => { onClick: any => mixed } = (dispatch: Dispatch
   },
 });
 
-export default connect(null, mapDispatchToProps)(Button);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Button);

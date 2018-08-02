@@ -1,7 +1,8 @@
 // @flow
-import { ASSETS_PATH } from '../../config';
+export type ManifestType = { 'app.css': string, 'app.js': string, 'vendor.js': string };
 
 export default function generateHtmlPage(
+  assets: ManifestType,
   plainPartialState: any = {},
   appHtml: string = '',
   styleTags: string = '',
@@ -19,7 +20,7 @@ export default function generateHtmlPage(
         user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
       />
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="stylesheet" type="text/css" href="${ASSETS_PATH}app.css" />
+      <link rel="stylesheet" type="text/css" href="${assets['app.css']}" />
       ${styleTags}
       </head>
     <body>
@@ -27,7 +28,9 @@ export default function generateHtmlPage(
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(plainPartialState)}
         </script>
-        <script src="${ASSETS_PATH}app.js"></script>
+        <script src="${assets['app.js']}"></script>
+
+        <script src="${assets['vendor.js']}"></script>
       </body>
     </html>`;
 }

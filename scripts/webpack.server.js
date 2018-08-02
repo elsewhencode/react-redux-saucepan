@@ -2,18 +2,17 @@ const path = require('path');
 /* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const FlowWebpackPlugin = require('flow-webpack-plugin');
-
 /* eslint-enable import/no-extraneous-dependencies */
 const srcPath = path.resolve(__dirname, '../src/server');
 const { ASSETS_PATH } = require('../config');
+const manifest = require('../dist/manifest.json');
 
 module.exports = {
   target: 'node',
   cache: false,
   context: srcPath,
   devtool: 'source-map',
+  mode: 'production',
   entry: {
     index: [
       // entry point of the app for server-side
@@ -28,10 +27,9 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader'],
-        }),
+        // This plugin should be used only on production
+        // builds without style-loader in the loaders chain
+        use: ['css-loader/locals'],
       },
       // Font Definitions
       {
@@ -49,18 +47,40 @@ module.exports = {
         },
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         enforce: 'pre',
-        use: [
-          { loader: 'eslint-loader' },
-          { loader: 'stylelint-custom-processor-loader' },
-        ],
+        use: [{ loader: 'eslint-loader' }, { loader: 'stylelint-custom-processor-loader' }],
         exclude: /node_modules/,
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        options: {
+          babelrc: false, // .babelrc takes only one target.
+          plugins: [
+            '@babel/plugin-proposal-object-rest-spread',
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                polyfill: false,
+                regenerator: true,
+              },
+            ],
+          ],
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  node: 'current',
+                },
+              },
+            ],
+            '@babel/preset-flow',
+            '@babel/preset-react',
+          ],
+        },
       },
     ],
     noParse: /\.min\.js/,
@@ -68,22 +88,25 @@ module.exports = {
   externals: nodeExternals(),
   resolve: {
     modules: [path.resolve('./src')],
-    extensions: ['.js', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.css'],
   },
   node: {
     __dirname: false,
     __filename: false,
   },
+
   plugins: [
-    // check flow types on each compile
-    new FlowWebpackPlugin(),
+    // new MiniCssExtractPlugin({
+    //   filename: 'app.[chunkhash].css',
+    // }),
     new webpack.DefinePlugin({
       __CLIENT__: false,
       __SERVER__: true,
       __PRODUCTION__: true,
       __DEVELOP__: false,
+      __ASSETS__: JSON.stringify(manifest),
     }),
-    new ExtractTextPlugin('app.css'),
+
     new webpack.DefinePlugin({
       // Needed for reducing React's size
       'process.env': {

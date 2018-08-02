@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import ReposList from './containers/ReposList';
 import GetReposAsyncButton from './containers/GetReposAsyncButton';
@@ -11,12 +11,10 @@ type Props = {};
 export default class ReposListPage extends React.Component<Props> {
   render() {
     return (
-      <Fragment>
-        <ReposList
-          columnKeys={['name', 'id', 'stargazers_count', 'forks_count']}
-        />
+      <React.Fragment>
         <GetReposAsyncButton />
-      </Fragment>
+        <ReposList columnKeys={['name', 'id', 'stargazers_count', 'forks_count']} />
+      </React.Fragment>
     );
   }
 }
