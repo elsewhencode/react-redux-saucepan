@@ -1,15 +1,15 @@
 {
   "plugins": [
     "react-hot-loader/babel",
-    "transform-object-rest-spread",
+    "@babel/plugin-proposal-object-rest-spread",
     [
-      "transform-runtime",
+      "@babel/plugin-transform-runtime",
       {
         "polyfill": false,
         "regenerator": true
       }
     ]
   ],
-  "presets": ["env", "flow", "react"],
+  "presets": ["@babel/preset-env", "@babel/preset-react", "@babel/preset-flow"],
   "retainLines": true
 }
