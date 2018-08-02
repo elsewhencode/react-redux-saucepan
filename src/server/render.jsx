@@ -8,8 +8,9 @@ import { ServerStyleSheet } from 'styled-components';
 
 import initStore from '../shared/store';
 import html from './html';
+import type { ManifestType } from './html';
 import App from '../shared/App';
-import type { AppStateType } from './../shared/rootReducer';
+import type { AppStateType } from '../shared/rootReducer';
 
 export default function render(
   location: string,
@@ -19,9 +20,7 @@ export default function render(
   // This context object contains the results of the render
   const routerContext: Object = {};
   // TODO: check this or statement
-  const store: Store = plainPartialState
-    ? initStore(plainPartialState)
-    : initStore();
+  const store: Store = plainPartialState ? initStore(plainPartialState) : initStore();
   const wrapApp = (
     <Provider store={store}>
       <StaticRouter location={location} context={routerContext}>
@@ -32,5 +31,13 @@ export default function render(
   const sheet = new ServerStyleSheet();
   const appHtml: string = renderToString(sheet.collectStyles(wrapApp));
   const styleTags: string = sheet.getStyleTags(); // or sheet.getStyleElement()
-  return html(plainPartialState, appHtml, styleTags);
+
+  const assetList: ManifestType = {
+    'app.css': '',
+    'app.js': '',
+    'vendor.js': '',
+    ...__ASSETS__,
+  };
+
+  return html(assetList, plainPartialState, appHtml, styleTags);
 }

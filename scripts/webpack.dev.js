@@ -1,7 +1,6 @@
 const path = require('path');
 /* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FlowWebpackPlugin = require('flow-webpack-plugin');
 /* eslint-enable import/no-extraneous-dependencies */
 const { ASSETS_PATH } = require('./../config');
@@ -16,7 +15,7 @@ module.exports = {
   entry: [
     'webpack-hot-middleware/client',
     // the entry point of our app
-    './index.js',
+    './index.jsx',
   ],
   output: {
     filename: 'app.js',
@@ -27,16 +26,14 @@ module.exports = {
     pathinfo: true,
   },
   resolve: {
-    extensions: ['json', '.js'],
+    extensions: ['.js', '.jsx', '.json', '.css'],
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader'],
-        }),
+        // 'style-loader' only in dev mode
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       // Font Definitions
       {
@@ -55,28 +52,23 @@ module.exports = {
       },
       // eslint checking before processed by babel
       {
-        test: /\.js$/,
-        enforce: 'pre',
-        use: [
-          { loader: 'eslint-loader' },
-          { loader: 'stylelint-custom-processor-loader' },
-        ],
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        enforce: 'pre',
+        use: [{ loader: 'eslint-loader' }, { loader: 'stylelint-custom-processor-loader' }],
       },
       // babel
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
+        options: {
+          babelrc: true, // default is true. But jus a reminder that .babelrc is in use
+        },
         exclude: /node_modules/,
       },
     ],
   },
   plugins: [
-    // enable HMR
-    new webpack.HotModuleReplacementPlugin(),
-    // check flow types on each compile
-    new FlowWebpackPlugin(),
-
     // Dev mode doesnt do SSR, so __CLIENT_ is always true
     new webpack.DefinePlugin({
       __CLIENT__: true,
@@ -84,7 +76,11 @@ module.exports = {
       __PRODUCTION__: false,
       __DEVELOP__: true,
     }),
+    // enable HMR
+    new webpack.HotModuleReplacementPlugin(),
+    // check flow types on each compile
+    new FlowWebpackPlugin(),
 
-    new ExtractTextPlugin('app.css'),
+    // new ExtractTextPlugin('app.css'),
   ],
 };

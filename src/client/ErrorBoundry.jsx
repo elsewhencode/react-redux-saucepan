@@ -26,16 +26,23 @@ export default class ErrorBoundary extends React.Component<Props, State> {
 
   render() {
     const { hasError, error, info } = this.state;
+    const { children } = this.props;
     if (hasError) {
       // You can render any custom fallback UI
       return (
-        <React.Fragment>
-          <h3>React error</h3>
-          <pre>{error && error.toString()}</pre>
-          <pre>{info && ('No componentStack info' || info.componentStack)}</pre>
-        </React.Fragment>
+        <div style={{ padding: '5rem' }}>
+          <h3>
+React error
+          </h3>
+          <pre style={{ padding: '1rem', background: 'black', color: 'white' }}>
+            {error && error.toString()}
+          </pre>
+          <pre>
+            {info && ('No componentStack info' || info.componentStack)}
+          </pre>
+        </div>
       );
     }
-    return this.props.children;
+    return children;
   }
 }

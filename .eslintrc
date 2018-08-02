@@ -14,9 +14,7 @@
       {
         "allow": ["__PRELOADED_STATE__", "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]
       }
-    ],
-    "react/jsx-filename-extension": 0,
-    "react/prop-types": 2
+    ]
   },
   "globals": {
     "__ASSETS__": false,

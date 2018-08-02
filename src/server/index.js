@@ -3,7 +3,7 @@ import compression from 'compression';
 import express from 'express';
 
 import routing from './routing';
-import { WEB_PORT, ASSETS_PATH, HOST } from '../../config';
+import { PORT, ASSETS_PATH, HOST } from '../../config';
 import log from '../util/log';
 
 const app: express$Application = express();
@@ -21,6 +21,9 @@ app.get('*.js', (req: express$Request, res: express$Response, next) => {
 
 routing(app);
 
-app.listen(WEB_PORT, () => {
-  log(`Server running on ${HOST}:${WEB_PORT} (production)`);
+app.listen(PORT, HOST, (err) => {
+  if (err) {
+    return log(err);
+  }
+  return log(`😎  Listening on port ${PORT}. Open http://${HOST}:${PORT} in your browser.`);
 });

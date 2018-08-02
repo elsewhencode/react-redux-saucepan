@@ -2,12 +2,8 @@
 import { connect } from 'react-redux';
 
 import Table from '../../../components/Table';
-import {
-  preLoadedDataIsViewd,
-  fetchReposList,
-  type ArrayOfReposType,
-} from './../reducer';
-import type { AppStateType } from './../../../rootReducer';
+import { preLoadedDataIsViewd, fetchReposList, type ArrayOfReposType } from '../reducer';
+import type { AppStateType } from '../../../rootReducer';
 
 // FIXME: waiting for the MapDispatchToProps to be fixed.
 // link: https://github.com/flowtype/flow-typed/pull/2105
@@ -41,4 +37,7 @@ const mapDispatchToProps: DispatchStateToProps = (dispatch: Dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Table);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Table);

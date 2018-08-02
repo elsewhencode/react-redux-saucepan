@@ -5,7 +5,8 @@
     "script/**"
   ],
   "includeGlob": [
-    "src/**/*.js"
+    "src/**/*.js",
+    "src/**/*.jsx"
   ],
   "outputDir": "flow-coverage",
   "threshold": 90,

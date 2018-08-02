@@ -1,40 +1,40 @@
 // @flow
 
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-
 import { BrowserRouter } from 'react-router-dom';
 
-// webpack does have HMR but we need `react-hot-loader`
-// to let us keep the state when hot reloading
-import { hot } from 'react-hot-loader';
-
-import App from '../shared/App';
+import AppWithHotReload from '../shared/App';
 import initStore from '../shared/store';
 
 // Read more about ErrorBoundries here:
 // https://reactjs.org/docs/error-boundaries.html
 import ErrorBoundry from './ErrorBoundry';
 
+import 'sanitize.css';
+
 const preloadedState: string = window.__PRELOADED_STATE__;
 const rootElement: Element | null = document.getElementById('app');
 const store: Store = initStore(preloadedState);
 
 const provideAppwithStore = (
-  AppComponent: typeof App,
+  AppComponent: typeof AppWithHotReload,
   reduxStore: Store,
 ): React.Element<any> => (
   <Provider store={reduxStore}>
     <ErrorBoundry>
       <BrowserRouter>
-        <AppComponent state={window.__PRELOADED_STATE__} />
+        {/* flow-disable-next-line Flow typings are not updated to React 16.3 yet
+        more : https://github.com/facebook/flow/issues/6107 */}
+        <React.StrictMode>
+          <AppComponent state={window.__PRELOADED_STATE__} />
+        </React.StrictMode>
       </BrowserRouter>
     </ErrorBoundry>
   </Provider>
 );
 
-const appWithHotReload: typeof App = hot(module)(App);
 if (rootElement instanceof HTMLElement) {
-  ReactDOM.render(provideAppwithStore(appWithHotReload, store), rootElement);
+  render(provideAppwithStore(AppWithHotReload, store), rootElement);
 }
